@@ -1,0 +1,28 @@
+services:
+  hyperionng:
+    image: hyperionng:latest
+    container_name: hyperionng
+    privileged: true
+    devices:
+      - /dev/gpiomem
+    volumes:
+      - ./:/root/.hyperion
+    ports:
+      - "8090:8090"
+#    networks:
+#      mylannet:
+#         ipv4_address: 192.168.81.19
+    restart: unless-stopped
+#volumes:
+#   hyperionng-config:
+#networks:
+#   mylannet:
+#     name: mylannet
+#     driver: macvlan
+#     driver_opts:
+#       parent: eth0
+#     ipam:
+#       config:
+#         - subnet: 192.168.81.0/24
+#           gateway: 192.168.81.1
+#           ip_range: 192.168.81.64/26
