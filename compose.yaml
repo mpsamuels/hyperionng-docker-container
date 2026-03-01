@@ -5,17 +5,25 @@ services:
     privileged: true
     devices:
       - /dev/gpiomem
+      # - /dev/ttyACM0:/dev/ttyACM0
+      # - /dev/ttyUSB1:/dev/ttyUSB0
+      # - /dev/video0:/dev/video0
+      # - /dev/video1:/dev/video1
+      # - /dev/spidev0.0:/dev/spidev0.0 
     volumes:
-      - ./:/root/.hyperion
+      - ./data:/root/.hyperion
     ports:
+      - "19333:19333"
+      - "19400:19400"
+      - "19444:19444"
+      - "19445:19445"
       - "8090:8090"
-#    networks:
-#      mylannet:
-#         ipv4_address: 192.168.81.19
+      - "8092:8092"
     restart: unless-stopped
-#volumes:
-#   hyperionng-config:
-#networks:
+    # networks:
+    #   mylannet:
+    #      ipv4_address: 192.168.1.17
+# networks:
 #   mylannet:
 #     name: mylannet
 #     driver: macvlan
@@ -23,6 +31,6 @@ services:
 #       parent: eth0
 #     ipam:
 #       config:
-#         - subnet: 192.168.81.0/24
-#           gateway: 192.168.81.1
-#           ip_range: 192.168.81.64/26
+#         - subnet: 192.168.1.0/24
+#           gateway: 192.168.1.1
+#           ip_range: 192.168.1.64/26
