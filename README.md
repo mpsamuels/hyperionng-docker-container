@@ -5,6 +5,7 @@
 
 ## NOTE
 Default password = Password123
+
 Don't forget to edit '/boot/firmware/config.txt' and uncomment the 'dtparam=spi=on' line, then reboot, to enable GPIO pins on a Raspberry Pi 4
 
 ## About
